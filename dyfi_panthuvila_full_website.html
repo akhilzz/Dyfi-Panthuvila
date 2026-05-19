@@ -1,0 +1,470 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Noto+Sans+Malayalam:wght@400;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--red:#C8102E;--dark:#111111;--cream:#F5F0E8;--gold:#C9A84C;--carbon:#1A1A1A}
+body{background:var(--dark);color:var(--cream);font-family:'Barlow Condensed',sans-serif;overflow-x:hidden}
+.ml{font-family:'Noto Sans Malayalam',sans-serif}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(17,17,17,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,16,46,0.2);padding:14px 28px;display:flex;justify-content:space-between;align-items:center}
+.nav-l{display:flex;flex-direction:column}
+.nav-brand{font-size:18px;font-weight:900;color:var(--red);letter-spacing:0.2em}
+.nav-sub{font-size:7px;letter-spacing:0.45em;color:rgba(245,240,232,0.3)}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{font-size:8px;letter-spacing:0.3em;color:rgba(245,240,232,0.4);text-decoration:none;cursor:pointer}
+.nav-links a:hover{color:var(--cream)}
+.nav-btn{border:1px solid var(--red);color:var(--red);padding:5px 12px;font-size:8px;letter-spacing:0.3em;cursor:pointer;font-family:inherit}
+
+/* SECTIONS */
+section{padding:72px 28px;border-top:1px solid rgba(245,240,232,0.06)}
+
+/* HERO */
+.hero{padding:0;min-height:580px;position:relative;overflow:hidden;display:flex;flex-direction:column;border-top:none}
+.hero-geo{position:absolute;inset:0;pointer-events:none}
+.hero-body{position:relative;z-index:2;padding:48px 28px 100px;flex:1;display:flex;gap:24px}
+.hero-left{flex:1}
+.top-label{display:flex;align-items:center;gap:8px;margin-bottom:24px}
+.rdot{width:6px;height:6px;border-radius:50%;background:var(--red)}
+.ltxt{font-size:7px;letter-spacing:0.5em;color:rgba(245,240,232,0.35)}
+.branch-tag{display:inline-block;border:1px solid rgba(200,16,46,0.35);color:var(--red);font-size:7px;letter-spacing:0.4em;padding:4px 10px;margin-bottom:16px}
+.hero-ml-txt{font-size:12px;color:rgba(245,240,232,0.3);letter-spacing:0.05em;margin-bottom:4px}
+.hero-h1{font-size:64px;font-weight:900;line-height:0.88;text-transform:uppercase;letter-spacing:0.02em}
+.hero-h1 span{color:var(--red)}
+.hero-dist{font-size:13px;letter-spacing:0.3em;color:rgba(245,240,232,0.35);margin-top:8px}
+.rbar{width:36px;height:2px;background:var(--red);margin:20px 0}
+.hero-p{font-family:'Noto Sans Malayalam',sans-serif;font-size:13px;color:rgba(245,240,232,0.45);line-height:1.7;max-width:340px}
+.scroll-hint{display:flex;align-items:center;gap:10px;margin-top:24px}
+.sline{width:28px;height:1px;background:var(--red)}
+.stxt{font-size:7px;letter-spacing:0.4em;color:rgba(245,240,232,0.25)}
+.hero-right{width:180px;display:flex;align-items:center;justify-content:center;opacity:0.07}
+.stats-bar{display:flex;gap:0;border-top:1px solid rgba(245,240,232,0.07);position:relative;z-index:2}
+.stat{flex:1;padding:18px 20px;border-right:1px solid rgba(245,240,232,0.06)}
+.stat:last-child{border-right:none}
+.snum{font-size:26px;font-weight:900;color:var(--red)}
+.slbl{font-size:7px;letter-spacing:0.3em;color:rgba(245,240,232,0.25);margin-top:2px}
+
+/* HISTORY */
+.sec-label{font-size:7px;letter-spacing:0.5em;color:var(--red);margin-bottom:6px}
+.sec-title{font-size:48px;font-weight:900;line-height:0.9;text-transform:uppercase;margin-bottom:6px}
+.sec-title-ml{font-size:14px;color:rgba(245,240,232,0.3);margin-bottom:32px}
+.leaders-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:24px}
+.leader-card{background:rgba(245,240,232,0.03);border:1px solid rgba(200,16,46,0.15);padding:18px 14px;cursor:pointer;transition:border-color 0.3s}
+.leader-card:hover,.leader-card.active{border-color:var(--red);background:rgba(200,16,46,0.06)}
+.lc-photo{width:60px;height:60px;border-radius:50%;border:1px solid rgba(200,16,46,0.3);background:rgba(200,16,46,0.08);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:var(--red);margin-bottom:12px}
+.lc-party{font-size:6px;letter-spacing:0.35em;color:var(--red);margin-bottom:4px}
+.lc-name{font-size:13px;font-weight:900;text-transform:uppercase;line-height:1.1;color:var(--cream)}
+.lc-period{font-size:8px;color:rgba(245,240,232,0.3);margin-top:4px}
+.leader-detail{background:rgba(245,240,232,0.03);border:1px solid rgba(200,16,46,0.2);padding:24px;margin-top:16px;display:none}
+.leader-detail.show{display:flex;gap:20px}
+.ld-quote{font-family:'Noto Sans Malayalam',sans-serif;font-size:13px;color:rgba(245,240,232,0.5);line-height:1.7;border-left:2px solid var(--red);padding-left:14px;font-style:italic}
+.ld-title{font-size:11px;letter-spacing:0.2em;color:rgba(245,240,232,0.4);margin-bottom:6px}
+.ld-name-big{font-size:28px;font-weight:900;text-transform:uppercase;color:var(--cream);line-height:1}
+.ld-ml{font-size:11px;color:rgba(245,240,232,0.3);margin-top:4px;font-family:'Noto Sans Malayalam',sans-serif}
+
+/* LEADERSHIP */
+.members-top{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.member-card{background:rgba(245,240,232,0.03);border:1px solid rgba(200,16,46,0.2);padding:20px;text-align:center}
+.member-card.leader{border-color:rgba(200,16,46,0.4)}
+.mc-photo{width:80px;height:80px;border-radius:50%;border:2px solid var(--red);background:rgba(200,16,46,0.1);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:var(--red);margin:0 auto 12px}
+.mc-role{font-size:7px;letter-spacing:0.4em;color:var(--red);border:1px solid rgba(200,16,46,0.3);padding:3px 8px;display:inline-block;margin-bottom:8px}
+.mc-name{font-size:15px;font-weight:900;text-transform:uppercase;color:var(--cream)}
+.mc-ml{font-size:10px;color:rgba(245,240,232,0.3);margin-top:3px;font-family:'Noto Sans Malayalam',sans-serif}
+.members-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.member-sm{background:rgba(245,240,232,0.02);border:1px solid rgba(245,240,232,0.07);padding:14px;text-align:center}
+.mc-photo-sm{width:50px;height:50px;border-radius:50%;border:1px solid rgba(200,16,46,0.2);background:rgba(200,16,46,0.06);display:flex;align-items:center;justify-content:justify-content;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--red);margin:0 auto 8px}
+.mc-role-sm{font-size:6px;letter-spacing:0.3em;color:var(--red);margin-bottom:4px}
+.mc-name-sm{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--cream)}
+
+/* ACHIEVEMENTS */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(245,240,232,0.06);margin-bottom:32px}
+.stat-box{background:var(--dark);padding:20px 16px}
+.sb-num{font-size:40px;font-weight:900;color:var(--red);line-height:1}
+.sb-lbl{font-size:8px;letter-spacing:0.3em;color:rgba(245,240,232,0.4);margin-top:4px}
+.sb-sub{font-size:10px;color:rgba(245,240,232,0.25);margin-top:3px;font-family:'Noto Sans Malayalam',sans-serif}
+.prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.prog-card{background:rgba(245,240,232,0.02);border-left:2px solid var(--red);padding:14px 16px}
+.pc-name{font-size:13px;font-weight:700;color:var(--cream);margin-bottom:4px}
+.pc-desc{font-size:10px;color:rgba(245,240,232,0.35);line-height:1.5;font-family:'Noto Sans Malayalam',sans-serif}
+
+/* EVENTS */
+.events-filter{display:flex;gap:16px;margin-bottom:20px;border-bottom:1px solid rgba(245,240,232,0.07);padding-bottom:12px}
+.ef-btn{font-size:8px;letter-spacing:0.3em;color:rgba(245,240,232,0.3);cursor:pointer;padding-bottom:8px;border-bottom:1px solid transparent;margin-bottom:-13px}
+.ef-btn.active{color:var(--red);border-bottom-color:var(--red)}
+.events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.event-card{background:rgba(245,240,232,0.03);border:1px solid rgba(245,240,232,0.07);aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;position:relative;overflow:hidden}
+.ec-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:32px;opacity:0.06;color:var(--red)}
+.ec-cat{font-size:6px;letter-spacing:0.35em;color:var(--red);margin-bottom:4px;position:relative;z-index:1}
+.ec-name{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--cream);position:relative;z-index:1}
+.ec-date{font-size:7px;color:rgba(245,240,232,0.3);margin-top:2px;position:relative;z-index:1}
+.admin-note{background:rgba(200,16,46,0.06);border:1px solid rgba(200,16,46,0.15);padding:10px 14px;font-size:9px;color:rgba(245,240,232,0.35);margin-top:12px;letter-spacing:0.05em}
+
+/* STUDENTS */
+.students-wrap{display:flex;gap:24px;align-items:flex-start}
+.students-left{flex:1}
+.congrats-ml{font-size:48px;font-weight:900;color:var(--red);line-height:0.9;font-family:'Noto Sans Malayalam',sans-serif}
+.congrats-en{font-size:9px;letter-spacing:0.5em;color:rgba(245,240,232,0.25);margin-top:8px;margin-bottom:20px}
+.congrats-body{font-size:12px;color:rgba(245,240,232,0.45);line-height:1.75;font-family:'Noto Sans Malayalam',sans-serif;max-width:340px}
+.students-right{width:180px;display:flex;flex-direction:column;gap:10px}
+.grade-card{background:rgba(200,16,46,0.06);border-left:3px solid var(--red);padding:16px}
+.gc-num{font-size:36px;font-weight:900;color:var(--red)}
+.gc-lbl{font-size:7px;letter-spacing:0.3em;color:rgba(245,240,232,0.4);margin-top:2px}
+.gc-ml{font-size:9px;color:rgba(245,240,232,0.25);font-family:'Noto Sans Malayalam',sans-serif;margin-top:2px}
+
+/* SUPPORT */
+.support-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.support-card{background:rgba(200,16,46,0.05);border:1px solid rgba(200,16,46,0.2);padding:20px}
+.sc-icon{font-size:28px;color:var(--red);opacity:0.6;margin-bottom:12px}
+.sc-title{font-size:14px;font-weight:900;text-transform:uppercase;color:var(--cream);margin-bottom:4px}
+.sc-ml{font-size:9px;color:rgba(245,240,232,0.3);margin-bottom:14px;font-family:'Noto Sans Malayalam',sans-serif}
+.sc-list{list-style:none}
+.sc-list li{font-size:10px;color:rgba(245,240,232,0.45);padding:7px 0;border-bottom:1px solid rgba(245,240,232,0.05);font-family:'Noto Sans Malayalam',sans-serif}
+.sc-list li::before{content:'→ ';color:var(--red)}
+.sc-btn{margin-top:14px;display:inline-block;border:1px solid var(--red);color:var(--red);font-size:7px;letter-spacing:0.3em;padding:7px 14px;cursor:pointer;font-family:inherit}
+
+/* NIVEDANAM */
+.niv-card{background:rgba(245,240,232,0.03);border:1px solid rgba(200,16,46,0.25);max-width:500px;margin:0 auto;padding:32px}
+.niv-title{font-size:26px;font-weight:900;text-transform:uppercase;color:var(--cream);margin-bottom:4px}
+.niv-sub{font-size:10px;color:rgba(245,240,232,0.35);margin-bottom:24px;font-family:'Noto Sans Malayalam',sans-serif;line-height:1.6}
+.niv-field{margin-bottom:18px}
+.niv-label{font-size:7px;letter-spacing:0.35em;color:rgba(245,240,232,0.4);display:block;margin-bottom:6px}
+.niv-input{background:transparent;border:none;border-bottom:1px solid rgba(245,240,232,0.15);color:var(--cream);font-size:13px;font-family:inherit;width:100%;padding:8px 0;outline:none}
+.niv-input:focus{border-bottom-color:var(--red)}
+.niv-select{background:#1a1a1a;border:none;border-bottom:1px solid rgba(245,240,232,0.15);color:var(--cream);font-size:12px;font-family:inherit;width:100%;padding:8px 0;outline:none}
+.niv-textarea{background:transparent;border:none;border-bottom:1px solid rgba(245,240,232,0.15);color:var(--cream);font-size:12px;font-family:'Noto Sans Malayalam',sans-serif;width:100%;padding:8px 0;outline:none;resize:none;height:70px}
+.niv-submit{width:100%;background:var(--red);color:white;border:none;font-family:inherit;font-size:10px;letter-spacing:0.35em;padding:14px;cursor:pointer;margin-top:8px;text-transform:uppercase}
+.niv-success{text-align:center;padding:32px;display:none}
+.niv-check{font-size:36px;color:var(--red);margin-bottom:12px}
+.niv-ok{font-size:16px;font-weight:900;color:var(--cream);margin-bottom:6px}
+.niv-ok-sub{font-size:11px;color:rgba(245,240,232,0.4);font-family:'Noto Sans Malayalam',sans-serif}
+
+/* NEWS */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.news-card{background:rgba(245,240,232,0.03);border:1px solid rgba(245,240,232,0.07);padding:16px;cursor:pointer;transition:border-color 0.3s}
+.news-card:hover{border-color:rgba(200,16,46,0.35)}
+.nc-cat{font-size:6px;letter-spacing:0.35em;color:var(--red);margin-bottom:8px}
+.nc-head{font-size:13px;font-weight:700;color:var(--cream);line-height:1.2;text-transform:uppercase;margin-bottom:8px}
+.nc-exc{font-size:10px;color:rgba(245,240,232,0.35);line-height:1.6;font-family:'Noto Sans Malayalam',sans-serif}
+.nc-foot{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:10px;border-top:1px solid rgba(245,240,232,0.06)}
+.nc-date{font-size:7px;color:rgba(245,240,232,0.2)}
+.nc-more{font-size:7px;letter-spacing:0.25em;color:var(--red)}
+
+/* FOOTER */
+footer{background:var(--dark);border-top:1px solid rgba(200,16,46,0.2);padding:48px 28px 28px}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:32px}
+.footer-brand{font-size:48px;font-weight:900;color:var(--red);line-height:0.9;text-transform:uppercase}
+.footer-sub{font-size:7px;letter-spacing:0.4em;color:rgba(245,240,232,0.25);margin-top:6px}
+.footer-links{display:flex;gap:40px}
+.fl-col-title{font-size:7px;letter-spacing:0.4em;color:var(--red);margin-bottom:12px}
+.fl-col a{display:block;font-size:9px;color:rgba(245,240,232,0.35);text-decoration:none;margin-bottom:8px;letter-spacing:0.15em}
+.footer-bottom{border-top:1px solid rgba(245,240,232,0.05);padding-top:16px;display:flex;justify-content:space-between}
+.fb-txt{font-size:7px;letter-spacing:0.3em;color:rgba(245,240,232,0.15)}
+</style>
+
+<nav>
+  <div class="nav-l">
+    <span class="nav-brand">DYFI</span>
+    <span class="nav-sub">PANTHUVILA BRANCH</span>
+  </div>
+  <svg width="20" height="20" viewBox="0 0 100 100" fill="none" style="opacity:0.55">
+    <circle cx="35" cy="62" r="20" stroke="#C8102E" stroke-width="9" fill="none"/>
+    <path d="M35 42 Q34 14 60 9 Q48 28 52 40" stroke="#C8102E" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <rect x="46" y="28" width="9" height="46" rx="4" fill="#C8102E" transform="rotate(-44 50 51)"/>
+    <rect x="49" y="49" width="30" height="9" rx="4" fill="#C8102E"/>
+  </svg>
+  <div class="nav-links">
+    <a onclick="document.getElementById('s-history').scrollIntoView({behavior:'smooth'})">HISTORY</a>
+    <a onclick="document.getElementById('s-members').scrollIntoView({behavior:'smooth'})">MEMBERS</a>
+    <a onclick="document.getElementById('s-news').scrollIntoView({behavior:'smooth'})">NEWS</a>
+    <div class="nav-btn" onclick="document.getElementById('s-niv').scrollIntoView({behavior:'smooth'})">NIVEDANAM</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <svg class="hero-geo" viewBox="0 0 700 580" preserveAspectRatio="xMidYMid slice">
+    <circle cx="590" cy="280" r="230" fill="none" stroke="#C8102E" stroke-width="0.4"/>
+    <circle cx="590" cy="280" r="160" fill="none" stroke="#C8102E" stroke-width="0.3"/>
+    <circle cx="590" cy="280" r="90" fill="none" stroke="#C8102E" stroke-width="0.3"/>
+    <line x1="0" y1="520" x2="700" y2="520" stroke="#C8102E" stroke-width="0.3"/>
+    <polygon points="570,150 590,110 610,150" fill="none" stroke="#C8102E" stroke-width="0.5" opacity="0.3"/>
+  </svg>
+  <div class="hero-body">
+    <div class="hero-left">
+      <div class="top-label"><div class="rdot"></div><span class="ltxt">01 / PANTHUVILA BRANCH · ACTIVE</span></div>
+      <div class="branch-tag">DEMOCRATIC YOUTH FEDERATION OF INDIA</div>
+      <p class="hero-ml-txt ml">ഡി.വൈ.എഫ്.ഐ. പന്തുവിള</p>
+      <h1 class="hero-h1">PANTHU<span>VILA</span><br>BRANCH</h1>
+      <p class="hero-dist">THIRUVANANTHAPURAM DISTRICT</p>
+      <div class="rbar"></div>
+      <p class="hero-p">ജനങ്ങൾക്കായി · For the people.<br>Transparent. Accountable. United.<br>Building a just Kerala through youth power.</p>
+      <div class="scroll-hint"><div class="sline"></div><span class="stxt">SCROLL TO EXPLORE</span></div>
+    </div>
+    <div class="hero-right">
+      <svg width="160" height="160" viewBox="0 0 100 100" fill="none">
+        <circle cx="35" cy="62" r="22" stroke="#C8102E" stroke-width="9" fill="none"/>
+        <path d="M35 40 Q34 10 64 6 Q50 26 54 40" stroke="#C8102E" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <rect x="46" y="26" width="9" height="50" rx="4" fill="#C8102E" transform="rotate(-44 50 51)"/>
+        <rect x="49" y="49" width="32" height="9" rx="4" fill="#C8102E"/>
+      </svg>
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat"><div class="snum">50+</div><div class="slbl">PROGRAMS</div></div>
+    <div class="stat"><div class="snum">10K+</div><div class="slbl">PEOPLE HELPED</div></div>
+    <div class="stat"><div class="snum">1980</div><div class="slbl">ESTABLISHED</div></div>
+    <div class="stat"><div class="snum">200+</div><div class="slbl">VOLUNTEERS</div></div>
+  </div>
+</div>
+
+<!-- HISTORY -->
+<section id="s-history">
+  <div class="sec-label">02 / THE LEGACY</div>
+  <div class="sec-title">KERALA'S<br><span style="color:var(--red)">COMMUNIST</span><br>LEADERS</div>
+  <div class="sec-title-ml ml">കേരളം കണ്ട നേതാക്കൾ</div>
+  <div class="leaders-grid" id="leaders-grid"></div>
+  <div class="leader-detail" id="leader-detail">
+    <div style="flex:1">
+      <div class="ld-title" id="ld-party"></div>
+      <div class="ld-name-big" id="ld-name"></div>
+      <div class="ld-ml ml" id="ld-ml"></div>
+      <div style="margin:12px 0;font-size:9px;letter-spacing:0.25em;color:rgba(245,240,232,0.3)" id="ld-period"></div>
+      <div class="ld-quote ml" id="ld-quote"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERS -->
+<section id="s-members">
+  <div class="sec-label">03 / LEADERSHIP</div>
+  <div class="sec-title">BRANCH<br><span style="color:var(--red)">COMMITTEE</span></div>
+  <div class="sec-title-ml ml">നേതൃത്വം · പന്തുവിള</div>
+  <div class="members-top">
+    <div class="member-card leader">
+      <div class="mc-photo">S</div>
+      <div class="mc-role">BRANCH SECRETARY</div>
+      <div class="mc-name">TO BE UPDATED</div>
+      <div class="mc-ml ml">ശാഖാ സെക്രട്ടറി</div>
+    </div>
+    <div class="member-card leader">
+      <div class="mc-photo">P</div>
+      <div class="mc-role">BRANCH PRESIDENT</div>
+      <div class="mc-name">TO BE UPDATED</div>
+      <div class="mc-ml ml">ശാഖാ പ്രസിഡന്റ്</div>
+    </div>
+  </div>
+  <div class="members-grid" id="members-grid"></div>
+  <div class="admin-note">🔒 Member profiles are managed by DYFI Panthuvila admin team. Contact branch secretary to update.</div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="s-achievements">
+  <div class="sec-label">04 / WHAT WE DID</div>
+  <div class="sec-title">ACHIEVE<span style="color:var(--red)">MENTS</span></div>
+  <div class="sec-title-ml ml">നേട്ടങ്ങൾ</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="sb-num">50+</div><div class="sb-lbl">PROGRAMS</div><div class="sb-sub ml">ഈ വർഷം</div></div>
+    <div class="stat-box"><div class="sb-num">10K+</div><div class="sb-lbl">PEOPLE HELPED</div><div class="sb-sub ml">ജില്ലയിൽ</div></div>
+    <div class="stat-box"><div class="sb-num">5</div><div class="sb-lbl">BLOOD CAMPS</div><div class="sb-sub ml">2024</div></div>
+    <div class="stat-box"><div class="sb-num">200+</div><div class="sb-lbl">VOLUNTEERS</div><div class="sb-sub ml">സജീവ അംഗങ്ങൾ</div></div>
+  </div>
+  <div class="prog-grid">
+    <div class="prog-card"><div class="pc-name">Blood Donation Camp</div><div class="pc-desc ml">വാർഷിക ജില്ലാ ക്യാമ്പ്. 500+ യൂണിറ്റ് ശേഖരിച്ചു.</div></div>
+    <div class="prog-card"><div class="pc-name">Literacy Mission</div><div class="pc-desc ml">15 വാർഡുകളിൽ പ്രൗഢ സാക്ഷരത സഹായം.</div></div>
+    <div class="prog-card"><div class="pc-name">Flood Relief 2024</div><div class="pc-desc ml">800 കുടുംബങ്ങൾക്ക് അടിയന്തര കിറ്റ് വിതരണം.</div></div>
+    <div class="prog-card"><div class="pc-name">Free Medical Camp</div><div class="pc-desc ml">1,200 നിവാസികൾക്ക് ആരോഗ്യ പരിശോധന.</div></div>
+    <div class="prog-card"><div class="pc-name">Infrastructure Aid</div><div class="pc-desc ml">റോഡ്, ഡ്രെയിൻ പരാതി, ഫോളോ-അപ്.</div></div>
+    <div class="prog-card"><div class="pc-name">Scholarship Guidance</div><div class="pc-desc ml">300+ വിദ്യാർത്ഥികൾക്ക് കരിയർ കൗൺസലിംഗ്.</div></div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="s-events">
+  <div class="sec-label">05 / GALLERY</div>
+  <div class="sec-title">EVENTS &amp;<br><span style="color:var(--red)">PROGRAMS</span></div>
+  <div class="sec-title-ml ml">പരിപാടികൾ</div>
+  <div class="events-filter">
+    <span class="ef-btn active">ALL</span>
+    <span class="ef-btn">PROGRAMS</span>
+    <span class="ef-btn">MEETINGS</span>
+    <span class="ef-btn">CAMPAIGNS</span>
+  </div>
+  <div class="events-grid">
+    <div class="event-card"><div class="ec-placeholder">☭</div><div class="ec-cat">CAMPAIGN</div><div class="ec-name">BLOOD DONATION DRIVE</div><div class="ec-date">MAR 2025</div></div>
+    <div class="event-card"><div class="ec-placeholder">☭</div><div class="ec-cat">PROGRAM</div><div class="ec-name">FLOOD RELIEF DIST.</div><div class="ec-date">AUG 2024</div></div>
+    <div class="event-card"><div class="ec-placeholder">☭</div><div class="ec-cat">MEETING</div><div class="ec-name">DISTRICT CONFERENCE</div><div class="ec-date">JAN 2025</div></div>
+    <div class="event-card"><div class="ec-placeholder">☭</div><div class="ec-cat">PROGRAM</div><div class="ec-name">MEDICAL CAMP</div><div class="ec-date">FEB 2025</div></div>
+    <div class="event-card"><div class="ec-placeholder">☭</div><div class="ec-cat">CAMPAIGN</div><div class="ec-name">LITERACY DRIVE</div><div class="ec-date">NOV 2024</div></div>
+    <div class="event-card"><div class="ec-placeholder">☭</div><div class="ec-cat">MEETING</div><div class="ec-name">BRANCH MEETING</div><div class="ec-date">APR 2025</div></div>
+  </div>
+  <div class="admin-note">🔒 Photos are uploaded by DYFI Panthuvila admin only. Public can view — not upload.</div>
+</section>
+
+<!-- STUDENTS -->
+<section id="s-students">
+  <div class="sec-label">06 / TOMORROW'S VOICE</div>
+  <div class="students-wrap">
+    <div class="students-left">
+      <div class="congrats-ml">അഭിനന്ദ<br>നങ്ങൾ</div>
+      <div class="congrats-en">CONGRATULATIONS</div>
+      <p class="congrats-body">DYFI Panthuvila Branch congratulates every student who completed their SSLC and Plus Two examinations. Your achievement is a victory for your family and our community.<br><br>ഡി.വൈ.എഫ്.ഐ. പന്തുവിള ശാഖ</p>
+    </div>
+    <div class="students-right">
+      <div class="grade-card"><div class="gc-num">10</div><div class="gc-lbl">SSLC ACHIEVERS</div><div class="gc-ml">ആം ക്ലാസ്</div></div>
+      <div class="grade-card"><div class="gc-num">+2</div><div class="gc-lbl">HIGHER SECONDARY</div><div class="gc-ml">ഹയർ സെക്കൻഡറി</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section id="s-support">
+  <div class="sec-label">07 / CARE</div>
+  <div class="sec-title">NOBODY<br><span style="color:var(--red)">LEFT BEHIND</span></div>
+  <div class="sec-title-ml ml">ആരും ഒറ്റയ്ക്കല്ല</div>
+  <div class="support-grid">
+    <div class="support-card">
+      <div class="sc-icon">♿</div>
+      <div class="sc-title">Old Age Support</div>
+      <div class="sc-ml">വൃദ്ധജന പിന്തുണ</div>
+      <ul class="sc-list">
+        <li>Monthly visits</li>
+        <li>Medical escort</li>
+        <li>Financial aid</li>
+        <li>Govt scheme guidance</li>
+      </ul>
+      <div class="sc-btn" onclick="document.getElementById('s-niv').scrollIntoView({behavior:'smooth'})">APPLY VIA NIVEDANAM →</div>
+    </div>
+    <div class="support-card">
+      <div class="sc-icon">🏥</div>
+      <div class="sc-title">Medical Aid Fund</div>
+      <div class="sc-ml">വൈദ്യ സഹായ നിധി</div>
+      <ul class="sc-list">
+        <li>Emergency funds</li>
+        <li>Hospital coordination</li>
+        <li>Medicine support</li>
+        <li>Post-treatment care</li>
+      </ul>
+      <div class="sc-btn" onclick="document.getElementById('s-niv').scrollIntoView({behavior:'smooth'})">APPLY VIA NIVEDANAM →</div>
+    </div>
+  </div>
+</section>
+
+<!-- NIVEDANAM -->
+<section id="s-niv">
+  <div class="sec-label">08 / YOUR VOICE</div>
+  <div class="sec-title">NIVE<span style="color:var(--red)">DANAM</span></div>
+  <div class="sec-title-ml ml">നിവേദനം</div>
+  <div class="niv-card">
+    <div id="niv-form-wrap">
+      <div class="niv-sub ml">Submit your grievance to DYFI Panthuvila Branch. We respond within 48 hours. / നിങ്ങളുടെ പ്രശ്നം സമർപ്പിക്കൂ.</div>
+      <div class="niv-field"><label class="niv-label">FULL NAME / പൂർണ്ണ നാമം</label><input class="niv-input" placeholder="Your name"></div>
+      <div class="niv-field"><label class="niv-label">MOBILE / ഫോൺ</label><input class="niv-input" type="tel" placeholder="+91"></div>
+      <div class="niv-field"><label class="niv-label">WARD / വാർഡ്</label><input class="niv-input" placeholder="Ward name or number"></div>
+      <div class="niv-field"><label class="niv-label">CATEGORY / വിഭാഗം</label>
+        <select class="niv-select"><option>Old Age Support</option><option>Medical Aid</option><option>Education</option><option>Infrastructure</option><option>Other</option></select>
+      </div>
+      <div class="niv-field"><label class="niv-label">MESSAGE / സന്ദേശം</label><textarea class="niv-textarea" placeholder="Describe your issue..."></textarea></div>
+      <button class="niv-submit" onclick="submitNiv()">SUBMIT NIVEDANAM →</button>
+    </div>
+    <div class="niv-success" id="niv-success">
+      <div class="niv-check">✓</div>
+      <div class="niv-ok">നിവേദനം സ്വീകരിച്ചു</div>
+      <div class="niv-ok-sub">Received. We will respond within 48 hours.<br>48 മണിക്കൂറിനുള്ളിൽ ഞങ്ങൾ ബന്ധപ്പെടും.</div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="s-news">
+  <div class="sec-label">09 / THE WORLD</div>
+  <div class="sec-title">NEWS &amp;<br><span style="color:var(--red)">ARTICLES</span></div>
+  <div class="sec-title-ml ml">വാർത്തകൾ</div>
+  <div class="news-grid" id="news-grid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">DYFI<br>PANTHU<span style="color:rgba(245,240,232,0.3)">VILA</span></div>
+      <div class="footer-sub ml">ഡെമോക്രാറ്റിക് യൂത്ത് ഫെഡറേഷൻ ഓഫ് ഇന്ത്യ</div>
+      <div class="footer-sub" style="margin-top:4px">THIRUVANANTHAPURAM DISTRICT</div>
+    </div>
+    <div class="footer-links">
+      <div class="fl-col">
+        <div class="fl-col-title">NAVIGATE</div>
+        <a href="#">History</a><a href="#">Achievements</a><a href="#">Members</a><a href="#">Events</a><a href="#">Students</a><a href="#">Support</a><a href="#">Nivedanam</a><a href="#">News</a>
+      </div>
+      <div class="fl-col">
+        <div class="fl-col-title">CONTACT</div>
+        <a href="#">dyfi.in</a><a href="#">DYFI Kerala</a><a href="#">CPM Kerala</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="fb-txt">ജനകീയ ജനാധിപത്യം — FOR THE PEOPLE</span>
+    <span class="fb-txt">© 2025 DYFI PANTHUVILA</span>
+  </div>
+</footer>
+
+<script>
+const leaders=[
+  {init:'E',name:'E.M.S. NAMBOODIRIPAD',ml:'ഇ.എം.എസ്. നമ്പൂതിരിപ്പാട്',period:'1957–1959 | 1967–1969',party:'CPI(M)',quote:'Real strength lies in the connection with the masses. ജനങ്ങളുമായുള്ള ബന്ധത്തിലാണ് ഒരു പാർട്ടിയുടെ ശക്തി.'},
+  {init:'C',name:'C. ACHUTHA MENON',ml:'സി. അച്യുതമേനോൻ',period:'1969–1977',party:'CPI',quote:'Progress is built on the foundation of the people\'s trust. ജനങ്ങളുടെ വിശ്വാസത്തിലാണ് പ്രഗതി.'},
+  {init:'E',name:'E.K. NAYANAR',ml:'ഇ.കെ. നായനാർ',period:'1980–81 | 1987–91 | 1996–2001',party:'CPI(M)',quote:'Democracy means power to the working class. ജനാധിപത്യം എന്നാൽ തൊഴിലാളി വർഗ്ഗത്തിന്റെ അധികാരം.'},
+  {init:'V',name:'V.S. ACHUTHANANDAN',ml:'വി.എസ്. അച്യുതാനന്ദൻ',period:'2006–2011',party:'CPI(M)',quote:'Corruption is the enemy of the people. അഴിമതി ജനങ്ങളുടെ ശത്രുവാണ്.'},
+  {init:'P',name:'PINARAYI VIJAYAN',ml:'പിണറായി വിജയൻ',period:'2016–Present',party:'CPI(M)',quote:'Development and social justice must walk hand in hand. വികസനവും സാമൂഹ്യ നീതിയും ഒരുമിച്ച് നടക്കണം.'}
+];
+const lg=document.getElementById('leaders-grid');
+const ld=document.getElementById('leader-detail');
+leaders.forEach((l,i)=>{
+  const c=document.createElement('div');
+  c.className='leader-card';
+  c.innerHTML=`<div class="lc-photo">${l.init}</div><div class="lc-party">${l.party}</div><div class="lc-name">${l.name}</div><div class="lc-period">${l.period}</div>`;
+  c.onclick=()=>{
+    document.querySelectorAll('.leader-card').forEach(x=>x.classList.remove('active'));
+    c.classList.add('active');
+    document.getElementById('ld-party').textContent=l.party;
+    document.getElementById('ld-name').textContent=l.name;
+    document.getElementById('ld-ml').textContent=l.ml;
+    document.getElementById('ld-period').textContent=l.period;
+    document.getElementById('ld-quote').textContent=l.quote;
+    ld.classList.add('show');
+  };
+  lg.appendChild(c);
+});
+
+const roles=['JOINT SECRETARY','TREASURER','CULTURAL SECRETARY','WOMEN SECRETARY','STUDENT WING','SPORTS SECRETARY','WARD MEMBER','WARD MEMBER'];
+const mg=document.getElementById('members-grid');
+roles.forEach((r,i)=>{
+  const d=document.createElement('div');
+  d.className='member-sm';
+  d.innerHTML=`<div class="mc-photo-sm" style="display:flex;align-items:center;justify-content:center">${String.fromCharCode(65+i)}</div><div class="mc-role-sm">${r}</div><div class="mc-name-sm">TO BE UPDATED</div>`;
+  mg.appendChild(d);
+});
+
+const news=[
+  {cat:'LOCAL',head:'DYFI PANTHUVILA HOLDS BLOOD DONATION CAMP',exc:'Over 80 units collected in the annual drive at Community Hall.',date:'MAY 2025'},
+  {cat:'KERALA',head:'LDF WINS LOCAL BODY ELECTIONS',exc:'Left Democratic Front secures majority in Thiruvananthapuram corporation.',date:'APR 2025'},
+  {cat:'NATIONAL',head:'DYFI NATIONAL CONFERENCE RESOLUTIONS',exc:'Key resolutions on youth employment and education policy passed.',date:'MAR 2025'},
+  {cat:'LOCAL',head:'FREE MEDICAL CAMP AT PANTHUVILA',exc:'1,200 residents received free health checkup and medicines.',date:'FEB 2025'},
+  {cat:'WORLD',head:'PROGRESSIVE PARTIES GAIN IN EUROPE',exc:'Left parties make significant gains in regional elections across Europe.',date:'JAN 2025'},
+  {cat:'KERALA',head:'KERALA MODEL PRAISED GLOBALLY',exc:'International reports highlight Kerala\'s social development achievements.',date:'DEC 2024'}
+];
+const ng=document.getElementById('news-grid');
+news.forEach(n=>{
+  const d=document.createElement('div');
+  d.className='news-card';
+  d.innerHTML=`<div class="nc-cat">${n.cat}</div><div class="nc-head">${n.head}</div><div class="nc-exc">${n.exc}</div><div class="nc-foot"><span class="nc-date">${n.date}</span><span class="nc-more">READ MORE →</span></div>`;
+  ng.appendChild(d);
+});
+
+document.querySelectorAll('.ef-btn').forEach(b=>{
+  b.onclick=()=>{document.querySelectorAll('.ef-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active')};
+});
+
+function submitNiv(){
+  document.getElementById('niv-form-wrap').style.display='none';
+  document.getElementById('niv-success').style.display='block';
+}
+</script>

@@ -1,0 +1,119 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+.site{background:#111;min-height:600px;position:relative;overflow:hidden;font-family:'Barlow Condensed',sans-serif}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;border-bottom:1px solid rgba(200,16,46,0.2);position:relative;z-index:10}
+.nav-left{display:flex;flex-direction:column}
+.nav-brand{font-size:20px;font-weight:900;color:#C8102E;letter-spacing:0.18em}
+.nav-sub{font-size:8px;letter-spacing:0.45em;color:rgba(245,240,232,0.35)}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{font-size:9px;letter-spacing:0.3em;color:rgba(245,240,232,0.45);text-decoration:none}
+.nav-btn{border:1px solid #C8102E;color:#C8102E;padding:6px 14px;font-size:9px;letter-spacing:0.3em}
+.hero{min-height:520px;position:relative;display:flex;align-items:center;padding:0 32px}
+.geo-bg{position:absolute;inset:0}
+.left-accent{position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,transparent,#C8102E,transparent)}
+.star-group{position:absolute;right:40px;top:50%;transform:translateY(-50%);opacity:0.06}
+.hero-content{position:relative;z-index:2;max-width:520px}
+.top-label{display:flex;align-items:center;gap:10px;margin-bottom:28px}
+.red-dot{width:6px;height:6px;border-radius:50%;background:#C8102E}
+.label-txt{font-size:8px;letter-spacing:0.5em;color:rgba(245,240,232,0.4)}
+.branch-tag{display:inline-block;border:1px solid rgba(200,16,46,0.4);color:#C8102E;font-size:8px;letter-spacing:0.4em;padding:4px 12px;margin-bottom:20px}
+.hero-ml{font-size:13px;color:rgba(245,240,232,0.35);letter-spacing:0.06em;margin-bottom:6px;font-family:sans-serif}
+.hero-name{font-size:72px;font-weight:900;color:#F5F0E8;line-height:0.88;text-transform:uppercase;letter-spacing:0.02em}
+.hero-name span{color:#C8102E}
+.hero-district{font-size:18px;font-weight:700;color:rgba(245,240,232,0.4);letter-spacing:0.25em;text-transform:uppercase;margin-top:10px}
+.red-bar{width:40px;height:2px;background:#C8102E;margin:24px 0}
+.hero-tagline{font-family:sans-serif;font-size:14px;color:rgba(245,240,232,0.5);line-height:1.7;max-width:360px}
+.hero-tagline strong{color:rgba(245,240,232,0.8);font-weight:500}
+.scroll-hint{display:flex;align-items:center;gap:10px;margin-top:32px}
+.scroll-line{width:32px;height:1px;background:#C8102E}
+.scroll-txt{font-size:8px;letter-spacing:0.4em;color:rgba(245,240,232,0.3)}
+.right-panel{position:absolute;right:0;top:0;bottom:0;width:38%;display:flex;flex-direction:column;justify-content:center;align-items:center;border-left:1px solid rgba(200,16,46,0.1);padding:32px}
+.sickle-wrap{opacity:0.12}
+.stats-row{position:absolute;bottom:32px;left:32px;right:32px;display:flex;gap:32px;border-top:1px solid rgba(245,240,232,0.06);padding-top:20px;z-index:2}
+.stat-item{}
+.stat-num{font-size:28px;font-weight:900;color:#C8102E}
+.stat-lbl{font-size:8px;letter-spacing:0.3em;color:rgba(245,240,232,0.3);margin-top:2px}
+</style>
+<div class="site">
+  <nav class="nav">
+    <div class="nav-left">
+      <span class="nav-brand">DYFI</span>
+      <span class="nav-sub">PANTHUVILA BRANCH</span>
+    </div>
+    <svg width="22" height="22" viewBox="0 0 100 100" fill="none" style="opacity:0.6">
+      <circle cx="35" cy="60" r="18" stroke="#C8102E" stroke-width="8" fill="none"/>
+      <path d="M35 42 Q35 20 55 15 Q45 30 50 38" stroke="#C8102E" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <rect x="44" y="30" width="8" height="42" rx="4" fill="#C8102E" transform="rotate(-42 48 51)"/>
+      <rect x="48" y="48" width="28" height="8" rx="4" fill="#C8102E"/>
+    </svg>
+    <div class="nav-links">
+      <a href="#">HISTORY</a>
+      <a href="#">PROGRAMS</a>
+      <a href="#">MEMBERS</a>
+      <div class="nav-btn">NIVEDANAM</div>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="left-accent"></div>
+    <svg class="geo-bg" viewBox="0 0 700 520" preserveAspectRatio="xMidYMid slice">
+      <circle cx="580" cy="260" r="220" fill="none" stroke="#C8102E" stroke-width="0.4"/>
+      <circle cx="580" cy="260" r="160" fill="none" stroke="#C8102E" stroke-width="0.3"/>
+      <circle cx="580" cy="260" r="100" fill="none" stroke="#C8102E" stroke-width="0.3"/>
+      <line x1="0" y1="480" x2="700" y2="480" stroke="#C8102E" stroke-width="0.3"/>
+      <line x1="0" y1="40" x2="700" y2="40" stroke="rgba(245,240,232,0.04)" stroke-width="0.5"/>
+      <polygon points="560,180 580,140 600,180" fill="none" stroke="#C8102E" stroke-width="0.5" opacity="0.4"/>
+      <polygon points="600,320 620,280 640,320" fill="none" stroke="#C8102E" stroke-width="0.5" opacity="0.2"/>
+    </svg>
+
+    <div class="hero-content">
+      <div class="top-label">
+        <div class="red-dot"></div>
+        <span class="label-txt">01 / PANTHUVILA BRANCH · ACTIVE</span>
+      </div>
+      <div class="branch-tag">DYFI · DEMOCRATIC YOUTH FEDERATION OF INDIA</div>
+      <p class="hero-ml">ഡി.വൈ.എഫ്.ഐ. പന്തുവിള</p>
+      <h1 class="hero-name">PANTHU<span>VILA</span><br>BRANCH</h1>
+      <p class="hero-district">THIRUVANANTHAPURAM DISTRICT</p>
+      <div class="red-bar"></div>
+      <p class="hero-tagline">
+        <strong>ജനങ്ങൾക്കായി · For the people.</strong><br>
+        Transparent. Accountable. United. Building a just Kerala through youth power.
+      </p>
+      <div class="scroll-hint">
+        <div class="scroll-line"></div>
+        <span class="scroll-txt">SCROLL TO EXPLORE</span>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <svg class="sickle-wrap" width="180" height="180" viewBox="0 0 100 100">
+        <circle cx="35" cy="62" r="22" stroke="#C8102E" stroke-width="9" fill="none"/>
+        <path d="M35 40 Q34 12 62 8 Q50 28 54 40" stroke="#C8102E" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <rect x="46" y="28" width="9" height="48" rx="4.5" fill="#C8102E" transform="rotate(-45 50 52)"/>
+        <rect x="50" y="50" width="32" height="9" rx="4.5" fill="#C8102E"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-item">
+      <div class="stat-num">50+</div>
+      <div class="stat-lbl">PROGRAMS</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">10K+</div>
+      <div class="stat-lbl">PEOPLE HELPED</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">1980</div>
+      <div class="stat-lbl">ESTABLISHED</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">200+</div>
+      <div class="stat-lbl">VOLUNTEERS</div>
+    </div>
+  </div>
+</div>

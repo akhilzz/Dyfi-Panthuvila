@@ -1,0 +1,633 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Noto+Sans+Malayalam:wght@400;600&family=Playfair+Display:wght@700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f5efe4;font-family:'Barlow Condensed',sans-serif;color:#1a1a1a}
+
+.page-wrap{max-width:640px;margin:0 auto;padding:0 0 40px}
+
+.site-header{background:#C8102E;padding:0}
+.dark-bar{background:#7a0d1e;padding:7px 24px;display:flex;align-items:center;gap:10px}
+.db-txt{font-size:7px;letter-spacing:0.5em;color:rgba(255,255,255,0.65)}
+.db-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.3)}
+.red-header{padding:22px 24px;display:flex;align-items:center;gap:14px}
+.rh-icon{}
+.rh-text{}
+.rh-dyfi{font-size:38px;font-weight:900;color:white;letter-spacing:0.15em;line-height:1}
+.rh-full{font-size:9px;letter-spacing:0.35em;color:rgba(255,255,255,0.7);margin-top:2px}
+.rh-ml{font-family:'Noto Sans Malayalam',sans-serif;font-size:10px;color:rgba(255,255,255,0.55);margin-top:1px}
+.rh-divider{width:1.5px;height:40px;background:rgba(255,255,255,0.25);margin:0 10px}
+.branch-info{}
+.branch-name{font-size:16px;font-weight:700;color:white;letter-spacing:0.08em}
+.branch-ml{font-family:'Noto Sans Malayalam',sans-serif;font-size:10px;color:rgba(255,255,255,0.6);margin-top:2px}
+.branch-dist{font-size:7px;letter-spacing:0.4em;color:rgba(255,255,255,0.45);margin-top:3px}
+
+.card-zone{padding:24px 20px 0}
+.cz-label{font-size:7px;letter-spacing:0.5em;color:#999;text-align:center;margin-bottom:12px}
+
+/* THE HERITAGE CARD */
+.h-card{
+  background:#fffdf8;
+  border:1px solid #d4c4a0;
+  border-radius:3px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 4px 32px rgba(139,70,20,0.12),0 1px 4px rgba(139,70,20,0.08)
+}
+
+.h-card-top{
+  background:#C8102E;
+  padding:0;
+  position:relative;
+  overflow:hidden;
+  height:72px;
+  display:flex;
+  align-items:center
+}
+
+.top-ornament{
+  position:absolute;inset:0;
+  pointer-events:none
+}
+
+.top-content{
+  position:relative;z-index:2;
+  width:100%;
+  padding:0 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center
+}
+
+.tc-left{display:flex;align-items:center;gap:10px}
+.tc-sickle{}
+.tc-brand{}
+.tc-dyfi{font-size:30px;font-weight:900;color:white;letter-spacing:0.18em;line-height:1}
+.tc-org{font-size:6px;letter-spacing:0.35em;color:rgba(255,255,255,0.7);margin-top:1px}
+.tc-branch{font-size:6px;letter-spacing:0.3em;color:rgba(255,255,255,0.5)}
+
+.tc-right{text-align:right}
+.tc-id-lbl{font-size:5px;letter-spacing:0.5em;color:rgba(255,255,255,0.5)}
+.tc-id-val{font-size:14px;font-weight:900;color:white;letter-spacing:0.2em;font-family:'Playfair Display',serif}
+
+/* ORNAMENTAL BORDER BAND */
+.ornament-band{
+  height:14px;
+  background:#8B0000;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center
+}
+
+/* CREAM HERITAGE SECTION */
+.cream-heritage{
+  background:linear-gradient(180deg,#fdf6e8 0%,#fffdf8 100%);
+  padding:10px 20px;
+  border-bottom:1px solid #e8d8b0;
+  display:flex;
+  align-items:center;
+  gap:10px
+}
+.ch-left{display:flex;align-items:center;gap:6px}
+.ch-year{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:#8B0000}
+.ch-line{flex:1;height:1px;background:repeating-linear-gradient(90deg,#c8a870 0,#c8a870 4px,transparent 4px,transparent 8px)}
+.ch-quote{font-family:'Noto Sans Malayalam',sans-serif;font-size:9px;color:#a08050;font-style:italic;text-align:center}
+.ch-emblem{opacity:0.12;position:absolute;right:80px;top:50%;transform:translateY(-50%)}
+
+/* WATERMARK */
+.card-body-wrap{position:relative;overflow:hidden}
+.watermark{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  opacity:0.025;
+  pointer-events:none;
+  z-index:0
+}
+
+/* MEMBER SECTION */
+.member-section{
+  padding:18px 20px 14px;
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+  position:relative;
+  z-index:1
+}
+
+.photo-frame{
+  width:68px;height:80px;
+  border:2px solid #c8a870;
+  background:#f5efe4;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  position:relative;
+  overflow:hidden
+}
+.photo-corner{
+  position:absolute;
+  width:8px;height:8px;
+  border-color:#C8102E;
+  border-style:solid;
+}
+.pc-tl{top:3px;left:3px;border-width:1.5px 0 0 1.5px}
+.pc-tr{top:3px;right:3px;border-width:1.5px 1.5px 0 0}
+.pc-bl{bottom:3px;left:3px;border-width:0 0 1.5px 1.5px}
+.pc-br{bottom:3px;right:3px;border-width:0 1.5px 1.5px 0}
+.photo-init{font-size:26px;font-weight:900;color:#C8102E;font-family:'Playfair Display',serif}
+.photo-lbl{font-size:5px;letter-spacing:0.3em;color:#bba870;margin-top:3px}
+
+.member-info{flex:1}
+.mi-label{font-size:5px;letter-spacing:0.5em;color:#bba060;margin-bottom:3px}
+.mi-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#1a1a1a;line-height:1.1;border-bottom:1px solid #e8d8b0;padding-bottom:6px;margin-bottom:6px;text-transform:capitalize}
+.mi-unit-lbl{font-size:5px;letter-spacing:0.4em;color:#bba060}
+.mi-unit{font-size:9px;font-weight:700;color:#C8102E;letter-spacing:0.15em;margin-top:1px}
+
+.mi-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.mif{}
+.mif-lbl{font-size:5px;letter-spacing:0.4em;color:#bba060;margin-bottom:1px}
+.mif-val{font-size:11px;font-weight:700;color:#333;letter-spacing:0.05em}
+
+/* HERITAGE DETAILS BAND */
+.details-band{
+  background:#fdf6e8;
+  border-top:1px solid #e8d8b0;
+  border-bottom:1px solid #e8d8b0;
+  padding:10px 20px;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:0;
+  position:relative;
+  z-index:1
+}
+.db-item{padding:0 12px;border-right:1px solid #e8d8b0}
+.db-item:first-child{padding-left:0}
+.db-item:last-child{border-right:none}
+.db-lbl{font-size:5px;letter-spacing:0.4em;color:#bba060;margin-bottom:2px}
+.db-val{font-size:11px;font-weight:700;color:#333;text-transform:uppercase;letter-spacing:0.04em}
+
+/* CARD FOOTER */
+.card-footer{
+  background:#fffdf8;
+  padding:10px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+  z-index:1
+}
+.cf-valid{
+  border:1px solid #c8a870;
+  padding:4px 10px;
+  background:#fdf6e8
+}
+.cf-valid-lbl{font-size:5px;letter-spacing:0.45em;color:#bba060}
+.cf-valid-val{font-size:10px;font-weight:700;color:#8B0000;letter-spacing:0.15em;font-family:'Playfair Display',serif}
+.cf-center{display:flex;flex-direction:column;align-items:center;gap:3px}
+.cf-stars{display:flex;gap:4px}
+.cf-star{color:#c8a870;font-size:12px}
+.cf-issued{font-size:5px;letter-spacing:0.35em;color:#bba060;text-align:center}
+.cf-right{text-align:right}
+.cf-sign-lbl{font-size:5px;letter-spacing:0.35em;color:#bba060;margin-bottom:10px}
+.cf-sign-line{width:80px;height:1px;background:#c8a870;margin-left:auto}
+.cf-sign-name{font-size:6px;letter-spacing:0.25em;color:#bba060;margin-top:2px}
+
+/* BOTTOM DARK BAR */
+.card-dark-foot{
+  background:#7a0d1e;
+  padding:6px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center
+}
+.cdf-txt{font-size:6px;letter-spacing:0.4em;color:rgba(255,255,255,0.5)}
+.cdf-ml{font-family:'Noto Sans Malayalam',sans-serif;font-size:7px;color:rgba(255,255,255,0.4)}
+
+/* FORM */
+.form-zone{padding:20px}
+.fz-title{font-size:8px;letter-spacing:0.5em;color:#C8102E;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #e8d8b0}
+.fcard{background:white;border:1px solid #e8d8b0;border-radius:3px;padding:20px;margin-bottom:14px;box-shadow:0 1px 8px rgba(139,70,20,0.05)}
+.fcard-title{font-size:7px;letter-spacing:0.45em;color:#8B0000;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.fcard-title::after{content:'';flex:1;height:1px;background:#f0e4cc}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ff{margin-bottom:2px}
+.ff.full{grid-column:1/-1}
+.flbl{font-size:6px;letter-spacing:0.4em;color:#aaa;display:block;margin-bottom:5px}
+.finp{background:transparent;border:none;border-bottom:1.5px solid #e8d8b0;color:#1a1a1a;font-size:13px;font-family:'Barlow Condensed',sans-serif;width:100%;padding:7px 0;outline:none}
+.finp:focus{border-bottom-color:#C8102E}
+.fsel{background:white;border:none;border-bottom:1.5px solid #e8d8b0;color:#1a1a1a;font-size:12px;font-family:'Barlow Condensed',sans-serif;width:100%;padding:7px 0;outline:none}
+
+.btn-row{display:flex;gap:10px}
+.btn-main{flex:1;background:#C8102E;color:white;border:none;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.35em;padding:14px;cursor:pointer;text-transform:uppercase;border-radius:2px}
+.btn-main:hover{background:#8B0000}
+.btn-clr{background:white;color:#aaa;border:1px solid #e8d8b0;font-family:'Barlow Condensed',sans-serif;font-size:10px;padding:14px 16px;cursor:pointer;border-radius:2px}
+
+.success{display:none;background:white;border:1px solid #e8d8b0;border-radius:3px;padding:36px 24px;text-align:center;margin:0 20px;box-shadow:0 2px 16px rgba(139,70,20,0.08)}
+.s-emblem{margin:0 auto 16px}
+.s-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#1a1a1a;margin-bottom:4px}
+.s-ml{font-family:'Noto Sans Malayalam',sans-serif;font-size:12px;color:#888;line-height:1.7}
+.dl-btn{display:inline-flex;align-items:center;gap:8px;background:#C8102E;color:white;border:none;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.35em;padding:14px 24px;cursor:pointer;margin-top:20px;border-radius:2px;text-transform:uppercase}
+</style>
+
+<div class="page-wrap">
+  <div class="site-header">
+    <div class="dark-bar">
+      <span class="db-txt">ഡി.വൈ.എഫ്.ഐ. പന്തുവിള ശാഖ</span>
+      <div class="db-dot"></div>
+      <span class="db-txt">MEMBERSHIP REGISTRATION · അംഗത്വ രജിസ്ട്രേഷൻ</span>
+      <div class="db-dot"></div>
+      <span class="db-txt">THIRUVANANTHAPURAM</span>
+    </div>
+    <div class="red-header">
+      <svg width="36" height="36" viewBox="0 0 100 100" fill="none">
+        <circle cx="35" cy="62" r="20" stroke="white" stroke-width="9" fill="none"/>
+        <path d="M35 42 Q34 14 60 9 Q48 28 52 40" stroke="white" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <rect x="46" y="28" width="9" height="46" rx="4" fill="white" transform="rotate(-44 50 51)"/>
+        <rect x="49" y="49" width="30" height="9" rx="4" fill="white"/>
+      </svg>
+      <div class="rh-text">
+        <div class="rh-dyfi">DYFI</div>
+        <div class="rh-full">DEMOCRATIC YOUTH FEDERATION OF INDIA</div>
+        <div class="rh-ml">ഡെമോക്രാറ്റിക് യൂത്ത് ഫെഡറേഷൻ ഓഫ് ഇന്ത്യ</div>
+      </div>
+      <div class="rh-divider"></div>
+      <div class="branch-info">
+        <div class="branch-name">PANTHUVILA BRANCH</div>
+        <div class="branch-ml">പന്തുവിള ശാഖ</div>
+        <div class="branch-dist">THIRUVANANTHAPURAM DISTRICT · KERALA</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-zone">
+    <p class="cz-label">MEMBERSHIP CARD PREVIEW · TYPE BELOW TO SEE YOUR CARD LIVE</p>
+
+    <div class="h-card">
+      <!-- TOP RED BAND -->
+      <div class="h-card-top">
+        <svg class="top-ornament" viewBox="0 0 600 72" preserveAspectRatio="xMidYMid slice">
+          <circle cx="540" cy="36" r="80" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <circle cx="540" cy="36" r="55" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <circle cx="60" cy="36" r="60" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+          <line x1="0" y1="68" x2="600" y2="68" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+          <polygon points="280,8 290,28 270,28" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+          <polygon points="320,8 330,28 310,28" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+        </svg>
+        <div class="top-content">
+          <div class="tc-left">
+            <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
+              <circle cx="35" cy="62" r="20" stroke="white" stroke-width="9" fill="none"/>
+              <path d="M35 42 Q34 14 60 9 Q48 28 52 40" stroke="white" stroke-width="9" fill="none" stroke-linecap="round"/>
+              <rect x="46" y="28" width="9" height="46" rx="4" fill="white" transform="rotate(-44 50 51)"/>
+              <rect x="49" y="49" width="30" height="9" rx="4" fill="white"/>
+            </svg>
+            <div class="tc-brand">
+              <div class="tc-dyfi">DYFI</div>
+              <div class="tc-org">DEMOCRATIC YOUTH FEDERATION OF INDIA</div>
+              <div class="tc-branch">PANTHUVILA BRANCH · THIRUVANANTHAPURAM</div>
+            </div>
+          </div>
+          <div class="tc-right">
+            <div class="tc-id-lbl">MEMBER ID</div>
+            <div class="tc-id-val" id="cid">PTV — 2025</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GOLD ORNAMENT BAND -->
+      <div class="ornament-band">
+        <svg width="100%" height="14" viewBox="0 0 600 14" preserveAspectRatio="none">
+          <rect width="600" height="14" fill="#6a0010"/>
+          <line x1="0" y1="2" x2="600" y2="2" stroke="#c8a870" stroke-width="0.5"/>
+          <line x1="0" y1="12" x2="600" y2="12" stroke="#c8a870" stroke-width="0.5"/>
+          <g fill="#c8a870" opacity="0.7">
+            <rect x="20" y="5" width="12" height="4" rx="1"/>
+            <rect x="40" y="5" width="4" height="4" rx="1"/>
+            <rect x="52" y="5" width="12" height="4" rx="1"/>
+            <rect x="72" y="5" width="4" height="4" rx="1"/>
+            <rect x="84" y="5" width="12" height="4" rx="1"/>
+            <rect x="104" y="5" width="4" height="4" rx="1"/>
+            <rect x="116" y="5" width="12" height="4" rx="1"/>
+            <rect x="136" y="5" width="4" height="4" rx="1"/>
+            <rect x="148" y="5" width="12" height="4" rx="1"/>
+            <rect x="168" y="5" width="4" height="4" rx="1"/>
+            <rect x="180" y="5" width="12" height="4" rx="1"/>
+            <rect x="200" y="5" width="4" height="4" rx="1"/>
+            <rect x="212" y="5" width="12" height="4" rx="1"/>
+            <rect x="232" y="5" width="4" height="4" rx="1"/>
+            <rect x="244" y="5" width="12" height="4" rx="1"/>
+            <rect x="264" y="5" width="4" height="4" rx="1"/>
+            <polygon points="295,3 300,11 305,3" fill="#c8a870"/>
+            <rect x="316" y="5" width="12" height="4" rx="1"/>
+            <rect x="336" y="5" width="4" height="4" rx="1"/>
+            <rect x="348" y="5" width="12" height="4" rx="1"/>
+            <rect x="368" y="5" width="4" height="4" rx="1"/>
+            <rect x="380" y="5" width="12" height="4" rx="1"/>
+            <rect x="400" y="5" width="4" height="4" rx="1"/>
+            <rect x="412" y="5" width="12" height="4" rx="1"/>
+            <rect x="432" y="5" width="4" height="4" rx="1"/>
+            <rect x="444" y="5" width="12" height="4" rx="1"/>
+            <rect x="464" y="5" width="4" height="4" rx="1"/>
+            <rect x="476" y="5" width="12" height="4" rx="1"/>
+            <rect x="496" y="5" width="4" height="4" rx="1"/>
+            <rect x="508" y="5" width="12" height="4" rx="1"/>
+            <rect x="528" y="5" width="4" height="4" rx="1"/>
+            <rect x="540" y="5" width="12" height="4" rx="1"/>
+            <rect x="560" y="5" width="4" height="4" rx="1"/>
+            <rect x="572" y="5" width="12" height="4" rx="1"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- CREAM HERITAGE ROW -->
+      <div class="cream-heritage">
+        <span style="font-family:'Playfair Display',serif;font-size:12px;font-weight:700;color:#8B0000;white-space:nowrap">EST. 1980</span>
+        <div style="flex:1;height:1px;background:repeating-linear-gradient(90deg,#c8a870 0,#c8a870 3px,transparent 3px,transparent 7px)"></div>
+        <div style="text-align:center;flex-shrink:0">
+          <svg width="20" height="20" viewBox="0 0 100 100" fill="none" style="opacity:0.4">
+            <circle cx="35" cy="62" r="20" stroke="#8B0000" stroke-width="9" fill="none"/>
+            <path d="M35 42 Q34 14 60 9 Q48 28 52 40" stroke="#8B0000" stroke-width="9" fill="none" stroke-linecap="round"/>
+            <rect x="46" y="28" width="9" height="46" rx="4" fill="#8B0000" transform="rotate(-44 50 51)"/>
+            <rect x="49" y="49" width="30" height="9" rx="4" fill="#8B0000"/>
+          </svg>
+        </div>
+        <div style="flex:1;height:1px;background:repeating-linear-gradient(90deg,#c8a870 0,#c8a870 3px,transparent 3px,transparent 7px)"></div>
+        <span style="font-family:'Noto Sans Malayalam',sans-serif;font-size:9px;color:#a08050;font-style:italic;white-space:nowrap">ജനങ്ങൾക്കായി · For the people</span>
+        <div style="flex:1;height:1px;background:repeating-linear-gradient(90deg,#c8a870 0,#c8a870 3px,transparent 3px,transparent 7px)"></div>
+        <span style="font-family:'Playfair Display',serif;font-size:12px;font-weight:700;color:#8B0000;white-space:nowrap">CPI(M)</span>
+      </div>
+
+      <!-- BODY -->
+      <div class="card-body-wrap">
+        <svg class="watermark" width="180" height="180" viewBox="0 0 100 100" fill="none">
+          <circle cx="35" cy="62" r="20" stroke="#C8102E" stroke-width="9" fill="none"/>
+          <path d="M35 42 Q34 14 60 9 Q48 28 52 40" stroke="#C8102E" stroke-width="9" fill="none" stroke-linecap="round"/>
+          <rect x="46" y="28" width="9" height="46" rx="4" fill="#C8102E" transform="rotate(-44 50 51)"/>
+          <rect x="49" y="49" width="30" height="9" rx="4" fill="#C8102E"/>
+        </svg>
+
+        <div class="member-section">
+          <div class="photo-frame">
+            <div class="photo-corner pc-tl"></div>
+            <div class="photo-corner pc-tr"></div>
+            <div class="photo-corner pc-bl"></div>
+            <div class="photo-corner pc-br"></div>
+            <div class="photo-init" id="c-init">?</div>
+            <div class="photo-lbl">PHOTO</div>
+          </div>
+          <div class="member-info">
+            <div class="mi-label">MEMBER NAME / അംഗത്തിന്റെ പേര്</div>
+            <div class="mi-name" id="c-name">Your Name Here</div>
+            <div class="mi-unit-lbl">BRANCH / UNIT</div>
+            <div class="mi-unit">DYFI PANTHUVILA BRANCH</div>
+            <div class="mi-fields">
+              <div>
+                <div class="mif-lbl">WARD / വാർഡ്</div>
+                <div class="mif-val" id="c-ward">—</div>
+              </div>
+              <div>
+                <div class="mif-lbl">MOBILE</div>
+                <div class="mif-val" id="c-phone">—</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="details-band">
+          <div class="db-item">
+            <div class="db-lbl">AGE / പ്രായം</div>
+            <div class="db-val" id="c-age">—</div>
+          </div>
+          <div class="db-item">
+            <div class="db-lbl">OCCUPATION</div>
+            <div class="db-val" id="c-occ">—</div>
+          </div>
+          <div class="db-item" style="border-right:none">
+            <div class="db-lbl">EDUCATION</div>
+            <div class="db-val" id="c-edu">—</div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="cf-valid">
+            <div class="cf-valid-lbl">VALID PERIOD</div>
+            <div class="cf-valid-val">2025 — 2026</div>
+          </div>
+          <div class="cf-center">
+            <div class="cf-stars">
+              <span class="cf-star">★</span>
+              <span class="cf-star">★</span>
+              <span class="cf-star">★</span>
+            </div>
+            <div class="cf-issued">ISSUED BY DYFI PANTHUVILA BRANCH COMMITTEE</div>
+          </div>
+          <div class="cf-right">
+            <div class="cf-sign-lbl">BRANCH SECRETARY</div>
+            <div class="cf-sign-line"></div>
+            <div class="cf-sign-name">PANTHUVILA BRANCH</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTTOM GOLD BAND -->
+      <div class="ornament-band">
+        <svg width="100%" height="14" viewBox="0 0 600 14" preserveAspectRatio="none">
+          <rect width="600" height="14" fill="#6a0010"/>
+          <line x1="0" y1="2" x2="600" y2="2" stroke="#c8a870" stroke-width="0.5"/>
+          <line x1="0" y1="12" x2="600" y2="12" stroke="#c8a870" stroke-width="0.5"/>
+          <g fill="#c8a870" opacity="0.6">
+            <rect x="20" y="5" width="560" height="4" rx="1" fill="none" stroke="#c8a870" stroke-width="0.3"/>
+            <rect x="30" y="5" width="8" height="4" rx="1"/>
+            <rect x="46" y="5" width="8" height="4" rx="1"/>
+            <rect x="62" y="5" width="8" height="4" rx="1"/>
+            <rect x="78" y="5" width="8" height="4" rx="1"/>
+            <rect x="94" y="5" width="8" height="4" rx="1"/>
+            <rect x="110" y="5" width="8" height="4" rx="1"/>
+            <rect x="126" y="5" width="8" height="4" rx="1"/>
+            <rect x="142" y="5" width="8" height="4" rx="1"/>
+            <rect x="158" y="5" width="8" height="4" rx="1"/>
+            <rect x="174" y="5" width="8" height="4" rx="1"/>
+            <rect x="190" y="5" width="8" height="4" rx="1"/>
+            <rect x="206" y="5" width="8" height="4" rx="1"/>
+            <rect x="222" y="5" width="8" height="4" rx="1"/>
+            <rect x="238" y="5" width="8" height="4" rx="1"/>
+            <polygon points="297,2 303,12 291,12" fill="#c8a870"/>
+            <rect x="314" y="5" width="8" height="4" rx="1"/>
+            <rect x="330" y="5" width="8" height="4" rx="1"/>
+            <rect x="346" y="5" width="8" height="4" rx="1"/>
+            <rect x="362" y="5" width="8" height="4" rx="1"/>
+            <rect x="378" y="5" width="8" height="4" rx="1"/>
+            <rect x="394" y="5" width="8" height="4" rx="1"/>
+            <rect x="410" y="5" width="8" height="4" rx="1"/>
+            <rect x="426" y="5" width="8" height="4" rx="1"/>
+            <rect x="442" y="5" width="8" height="4" rx="1"/>
+            <rect x="458" y="5" width="8" height="4" rx="1"/>
+            <rect x="474" y="5" width="8" height="4" rx="1"/>
+            <rect x="490" y="5" width="8" height="4" rx="1"/>
+            <rect x="506" y="5" width="8" height="4" rx="1"/>
+            <rect x="522" y="5" width="8" height="4" rx="1"/>
+            <rect x="538" y="5" width="8" height="4" rx="1"/>
+            <rect x="554" y="5" width="8" height="4" rx="1"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="card-dark-foot">
+        <span class="cdf-txt">DEMOCRATIC YOUTH FEDERATION OF INDIA · PANTHUVILA BRANCH</span>
+        <span class="cdf-ml">ജനകീയ ജനാധിപത്യം</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-zone" id="form-area">
+    <div class="fz-title">FILL YOUR DETAILS · വിവരങ്ങൾ നൽകൂ</div>
+
+    <div class="fcard">
+      <div class="fcard-title">PERSONAL DETAILS · വ്യക്തിഗത വിവരങ്ങൾ</div>
+      <div class="fgrid">
+        <div class="ff">
+          <label class="flbl">FULL NAME / പൂർണ്ണ നാമം *</label>
+          <input class="finp" id="f-name" placeholder="Enter full name" oninput="live()">
+        </div>
+        <div class="ff">
+          <label class="flbl">MOBILE / ഫോൺ *</label>
+          <input class="finp" id="f-phone" placeholder="+91 XXXXX XXXXX" oninput="live()">
+        </div>
+        <div class="ff">
+          <label class="flbl">AGE / പ്രായം *</label>
+          <input class="finp" id="f-age" type="number" min="14" max="35" placeholder="Age" oninput="live()">
+        </div>
+        <div class="ff">
+          <label class="flbl">DATE OF BIRTH</label>
+          <input class="finp" id="f-dob" type="date">
+        </div>
+      </div>
+    </div>
+
+    <div class="fcard">
+      <div class="fcard-title">ADDRESS · വിലാസം</div>
+      <div class="fgrid">
+        <div class="ff">
+          <label class="flbl">WARD / വാർഡ്</label>
+          <input class="finp" id="f-ward" placeholder="Ward name / number" oninput="live()">
+        </div>
+        <div class="ff">
+          <label class="flbl">HOUSE NAME / വീടിന്റെ പേര്</label>
+          <input class="finp" id="f-house" placeholder="House name">
+        </div>
+        <div class="ff full">
+          <label class="flbl">FULL ADDRESS / പൂർണ്ണ വിലാസം</label>
+          <input class="finp" id="f-addr" placeholder="Street, area, pin code">
+        </div>
+      </div>
+    </div>
+
+    <div class="fcard">
+      <div class="fcard-title">OTHER DETAILS · മറ്റ് വിവരങ്ങൾ</div>
+      <div class="fgrid">
+        <div class="ff">
+          <label class="flbl">OCCUPATION / തൊഴിൽ</label>
+          <select class="fsel" id="f-occ" onchange="live()">
+            <option value="">Select</option>
+            <option>Student</option>
+            <option>Employed</option>
+            <option>Self-employed</option>
+            <option>Unemployed</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="ff">
+          <label class="flbl">EDUCATION / വിദ്യാഭ്യാസം</label>
+          <select class="fsel" id="f-edu" onchange="live()">
+            <option value="">Select</option>
+            <option>SSLC</option>
+            <option>Plus Two</option>
+            <option>Degree</option>
+            <option>Post Graduate</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="ff">
+          <label class="flbl">RELIGION / മതം</label>
+          <select class="fsel">
+            <option value="">Select</option>
+            <option>Hindu</option>
+            <option>Muslim</option>
+            <option>Christian</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="ff">
+          <label class="flbl">CASTE (optional)</label>
+          <input class="finp" placeholder="Optional">
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-clr" onclick="clearAll()">CLEAR</button>
+      <button class="btn-main" onclick="submit()">GENERATE MEMBERSHIP CARD + DOWNLOAD PDF →</button>
+    </div>
+    <p style="font-size:7px;letter-spacing:0.2em;color:#bbb;text-align:center;margin-top:10px">* Branch secretary will contact you within 48 hours · വിവരങ്ങൾ സുരക്ഷിതം</p>
+  </div>
+
+  <div class="success" id="suc">
+    <svg class="s-emblem" width="56" height="56" viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="48" fill="#C8102E"/>
+      <polyline points="28,52 44,68 72,36" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+    <div class="s-title">Welcome to DYFI!</div>
+    <p class="s-ml">നിങ്ങൾ DYFI പന്തുവിള ശാഖയുടെ അംഗമായി!<br>You have joined DYFI Panthuvila Branch.<br><br>Member ID: <strong id="s-id" style="color:#C8102E"></strong></p>
+    <button class="dl-btn" onclick="alert('Real site: jsPDF renders your heritage card and auto-downloads as PDF.')">⬇ DOWNLOAD MEMBERSHIP CARD PDF</button>
+    <p style="font-size:7px;letter-spacing:0.2em;color:#bbb;margin-top:14px">Branch secretary will contact you within 48 hours to complete your registration.</p>
+  </div>
+</div>
+
+<script>
+function live(){
+  const n=document.getElementById('f-name').value.trim();
+  const ph=document.getElementById('f-phone').value.trim();
+  const ag=document.getElementById('f-age').value.trim();
+  const wd=document.getElementById('f-ward').value.trim();
+  const oc=document.getElementById('f-occ').value;
+  const ed=document.getElementById('f-edu').value;
+  if(n){
+    document.getElementById('c-name').textContent=n;
+    const pts=n.split(' ');
+    const ini=(pts[0]?.[0]||'')+(pts[1]?.[0]||pts[0]?.[1]||'');
+    document.getElementById('c-init').textContent=ini.toUpperCase()||'?';
+    const id='PTV — '+String(Math.abs(n.split('').reduce((a,c)=>a+c.charCodeAt(0),0))%9000+1000);
+    document.getElementById('cid').textContent=id;
+  } else {
+    document.getElementById('c-name').textContent='Your Name Here';
+    document.getElementById('c-init').textContent='?';
+    document.getElementById('cid').textContent='PTV — 2025';
+  }
+  document.getElementById('c-phone').textContent=ph?ph.slice(-10):'—';
+  document.getElementById('c-age').textContent=ag||'—';
+  document.getElementById('c-ward').textContent=wd?wd.toUpperCase():'—';
+  document.getElementById('c-occ').textContent=oc||'—';
+  document.getElementById('c-edu').textContent=ed||'—';
+}
+function submit(){
+  const n=document.getElementById('f-name').value.trim();
+  const ph=document.getElementById('f-phone').value.trim();
+  const ag=document.getElementById('f-age').value.trim();
+  if(!n||!ph||!ag){alert('Please fill Name, Mobile and Age.\nപേര്, ഫോൺ, പ്രായം നൽകൂ.');return;}
+  document.getElementById('form-area').style.display='none';
+  document.getElementById('suc').style.display='block';
+  document.getElementById('s-id').textContent=document.getElementById('cid').textContent;
+}
+function clearAll(){
+  ['f-name','f-phone','f-age','f-dob','f-ward','f-house','f-addr'].forEach(id=>{document.getElementById(id).value='';});
+  document.getElementById('f-occ').value='';
+  document.getElementById('f-edu').value='';
+  live();
+}
+</script>

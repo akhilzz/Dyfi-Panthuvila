@@ -7,10 +7,10 @@ import LeaderSlideshow from '@/components/LeaderSlideshow';
 import MembersSection from '@/components/MembersSection';
 import AchievementsGrid from '@/components/AchievementsGrid';
 import EventsGallery from '@/components/EventsGallery';
-import StudentsSection from '@/components/StudentsSection';
 import SupportSection from '@/components/SupportSection';
 import NivedanamForm from '@/components/NivedanamForm';
 import NewsGrid from '@/components/NewsGrid';
+import MembershipForm from '@/components/MembershipForm';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -42,17 +42,17 @@ export default function Home() {
       {/* Section 5: Filterable Events Gallery */}
       <EventsGallery lang={lang} />
 
-      {/* Section 6: Students Congrats Panel */}
-      <StudentsSection lang={lang} />
-
-      {/* Section 7: Care Cards support details */}
+      {/* Section 6: Care Cards support details */}
       <SupportSection lang={lang} />
 
-      {/* Section 8: Nivedanam Grievance Form */}
+      {/* Section 7: Nivedanam Grievance Form */}
       <NivedanamForm lang={lang} />
 
-      {/* Section 9: Local, State and Global News Grid */}
+      {/* Section 8: Local, State and Global News Grid */}
       <NewsGrid lang={lang} />
+
+      {/* Section 9: Join Membership Form and Card */}
+      <MembershipForm />
       
       {/* Footer Block */}
       <Footer />

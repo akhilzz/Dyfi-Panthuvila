@@ -141,7 +141,7 @@ function HeroCoverBlock({
             className="text-[8px] uppercase tracking-[0.5em]"
             style={{ fontFamily: 'var(--font-display)', color: 'rgba(245, 240, 232, 0.4)' }}
           >
-            {lang === 'ml' ? '01 / പന്തുവിള ശാഖ · സജീവം' : '01 / PANTHUVILA BRANCH · ACTIVE'}
+            {lang === 'ml' ? '01 / പന്തുവിള യൂണിറ്റ് · സജീവം' : '01 / PANTHUVILA UNIT · ACTIVE'}
           </span>
         </div>
  
@@ -167,9 +167,9 @@ function HeroCoverBlock({
           }}
         >
           {lang === 'ml' ? (
-            <>പന്തുവിള<br/><span style={{ color: 'var(--dyfi-red)' }}>ശാഖ</span></>
+            <>പന്തുവിള<br/><span style={{ color: 'var(--dyfi-red)' }}>യൂണിറ്റ്</span></>
           ) : (
-            <>PANTHU<span style={{ color: 'var(--dyfi-red)' }}>VILA</span><br/>BRANCH</>
+            <>PANTHU<span style={{ color: 'var(--dyfi-red)' }}>VILA</span><br/>UNIT</>
           )}
         </h1>
  

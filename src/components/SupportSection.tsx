@@ -38,7 +38,7 @@ export default function SupportSection({ lang }: SupportSectionProps) {
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.6 }}
       >
-        <div className="sec-label">07 / CARE</div>
+        <div className="sec-label">06 / CARE</div>
         <div className="sec-title">
           NOBODY <span style={{ color: 'var(--red)' }}>LEFT BEHIND</span>
         </div>

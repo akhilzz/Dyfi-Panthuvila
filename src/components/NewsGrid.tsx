@@ -71,7 +71,7 @@ export default function NewsGrid({ lang }: NewsGridProps) {
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.6 }}
       >
-        <div className="sec-label">09 / THE WORLD</div>
+        <div className="sec-label">08 / THE WORLD</div>
         <div className="sec-title">
           NEWS &amp;<br />
           <span style={{ color: 'var(--red)' }}>ARTICLES</span>

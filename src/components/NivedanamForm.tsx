@@ -24,7 +24,7 @@ export default function NivedanamForm({ lang }: NivedanamFormProps) {
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.6 }}
       >
-        <div className="sec-label">08 / YOUR VOICE</div>
+        <div className="sec-label">07 / YOUR VOICE</div>
         <div className="sec-title">
           NIVE<span style={{ color: 'var(--red)' }}>DANAM</span>
         </div>
